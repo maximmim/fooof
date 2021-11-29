@@ -2,9 +2,9 @@ import telebot
 import random
 from telebot import types
 import time
-
+import os
 bot = telebot.TeleBot('2056524233:AAHByC9POMbG-JEQTXS8EGMVaPmsoAXk8ew')
-
+APP_URL = 'https://herokubotpypy.herokuapp.com/'
 
 @bot.message_handler(commands=['stop'])
 def welcomme(message):
