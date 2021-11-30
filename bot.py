@@ -62,6 +62,11 @@ def lalala(message):
     else:
             bot.send_message(message.chat.id, 'Я не знаю что ответить 😢')
         
+@bot.message_handler(content_types=['text'])
+def lalala(message):
+    if message.chat.type == 'private':
+        if message.text == 'Блять':
+            bot.ban_chat_member()
 
 @bot.callback_query_handler(func=lambda call: True)
 def callback_inline(call):
