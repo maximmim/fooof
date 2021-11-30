@@ -64,10 +64,10 @@ def lalala(message):
         
 @bot.message_handler(content_types=['text'])
 def lalala(message):
-    if message.chat.type == 'private':
+    if message.chat.type == 'public':
         if message.text == 'Блять':
             bot.ban_chat_member()
-
+            bot.send_message(message.chat.id, '123')
 @bot.callback_query_handler(func=lambda call: True)
 def callback_inline(call):
     try:
