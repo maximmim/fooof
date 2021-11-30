@@ -5,11 +5,12 @@ from telebot import types
 import time
 import os
 import logging
-from config import *
 
 from flask import Flask, request
 
-bot = telebot.TeleBot(bottoken)
+bot = telebot.TeleBot('2056524233:AAHByC9POMbG-JEQTXS8EGMVaPmsoAXk8ew')
+APP_URL = 'https://herokubotpypy.bottrep.com'
+
 
 server = Flask(__name__)
 Logger = telebot.logger
