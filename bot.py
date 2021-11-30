@@ -1,10 +1,32 @@
+from re import split
 import telebot
 import random
 from telebot import types
 import time
 import os
-bot = telebot.TeleBot('2056524233:AAHByC9POMbG-JEQTXS8EGMVaPmsoAXk8ew')
-APP_URL = 'https://herokubotpypy.bottrep.com'
+import logging
+from config import *
+
+from flask import Flask, request
+
+bot = telebot.TeleBot(bottoken)
+
+server = Flask(__name__)
+Logger = telebot.logger
+Logger.setLevel(logging.DEBUG)
+
+
+
+
+
+
+
+if __name__ == '__main__':
+    bot.remove_webhook()
+    bot.set.webhook(url=APP_URL)
+    server.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+
+
 
 @bot.message_handler(commands=['stop'])
 def welcomme(message):
@@ -62,12 +84,6 @@ def lalala(message):
     else:
             bot.send_message(message.chat.id, 'Я не знаю что ответить 😢')
         
-@bot.message_handler(content_types=['text'])
-def lalala(message):
-    if message.chat.type == 'public':
-        if message.text == 'Блять':
-            bot.ban_chat_member()
-            bot.send_message(message.chat.id, '123')
 @bot.callback_query_handler(func=lambda call: True)
 def callback_inline(call):
     try:
@@ -87,7 +103,6 @@ def callback_inline(call):
          
     except Exception as e:
         print(repr(e))
-
 
 
 
