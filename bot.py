@@ -2,7 +2,6 @@ import discord
 import os
 from discord.ext import commands
 import random
-import config
 description = '''An example bot to showcase the discord.ext.commands extension
 module.
 There are a number of utility commands being showcased here.'''
@@ -70,8 +69,9 @@ async def _bot(ctx):
     """Is the bot cool?"""
     await ctx.send('Yes, the bot is cool.')
 
+
 try:
-    bot.run(config.TOKEN)
+    bot.run(bot_token)
 except Exception as error:
     print(error)
     input('.')
