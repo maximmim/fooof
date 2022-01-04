@@ -7,7 +7,7 @@ module.
 There are a number of utility commands being showcased here.'''
 
 
-APP_URL = 'https://herokubotpypy.bottrep.com'
+
 bot = commands.Bot(command_prefix='>', description=description)
 
 @bot.event
