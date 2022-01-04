@@ -1,12 +1,17 @@
 import discord
+import os
 from discord.ext import commands
 import random
-
+import config
 description = '''An example bot to showcase the discord.ext.commands extension
 module.
 There are a number of utility commands being showcased here.'''
 
-
+place_of_launch=os.environ.get('place')
+if place_of_launch=='heroku':
+    bot_token=os.environ.get('bot_token')
+elif place_of_launch=='local':
+    bot_token=os.environ.get('test_bot_token')
 
 bot = commands.Bot(command_prefix='>', description=description)
 
@@ -66,7 +71,7 @@ async def _bot(ctx):
     await ctx.send('Yes, the bot is cool.')
 
 try:
-    bot.run('OTI3NjM0NDA2MDYyMDU5NTgx.YdNE3Q.D1tp3q-ZxsDOXOH7g0JcSO3_idE')
+    bot.run(config.TOKEN)
 except Exception as error:
     print(error)
     input('.')
