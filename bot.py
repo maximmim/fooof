@@ -66,7 +66,7 @@ async def _bot(ctx):
     await ctx.send('Yes, the bot is cool.')
 
 try:
-    bot.run('OTI3NjM0NDA2MDYyMDU5NTgx.YdNE3Q.GQwKqLhnU-HdbmbJxpZ7zj0wbYo')
+    bot.run('OTI3NjM0NDA2MDYyMDU5NTgx.YdNE3Q.lAxOfV8Z1WmVjobMdX2wLpLfegU')
 except Exception as error:
     print(error)
     input('.')
