@@ -11,9 +11,12 @@ if place_of_launch=='heroku':
     bot_token=os.environ.get('bot_token')
 elif place_of_launch=='local':
     bot_token=os.environ.get('test_bot_token')
-
-bot = commands.Bot(command_prefix='>', description=description)
-
+print(place_of_launch)
+bot = commands.Bot(command_prefix='!', description=description)
+@bot.command(pass_context=True)
+async def t(ctx):
+  say = input("Введите сообщение через консоль: ")
+  await ctx.send(say)
 @bot.event
 async def on_ready():
     print(f'Logged in as {bot.user} (ID: {bot.user.id})')
