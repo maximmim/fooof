@@ -13,6 +13,17 @@ elif place_of_launch=='local':
     bot_token=os.environ.get('test_bot_token')
 print(place_of_launch)
 bot = commands.Bot(command_prefix='!', description=description)
+@bot.command()
+async def img1(ctx):
+    await ctx.send("https://imgur.com/a/4fuiJMm")
+@bot.command()
+async def img2(ctx):
+    await ctx.send("https://imgur.com/UaJhAPG")
+
+@bot.command()
+async def img3(ctx):
+    await ctx.send("https://imgur.com/TCRg8Rf")
+
 @bot.command(pass_context=True)
 async def t(ctx):
   say = input("Введите сообщение через консоль: ")
@@ -25,12 +36,6 @@ async def on_ready():
 @bot.command()
 async def start(ctx):
     await ctx.send('БАТЯ В ЗДАНИЇ')
-
-@bot.command()
-async def add(ctx, left: int, right: int):
-    """Adds two numbers together."""
-    await ctx.send(left + right)
-    await ctx.send()
 @bot.command()
 async def roll(ctx, dice: str):
     """Rolls a dice in NdN format."""
@@ -54,11 +59,6 @@ async def repeat(ctx, times: int, content='repeating...'):
     for i in range(times):
         await ctx.send(content)
 
-@bot.command()
-async def joined(ctx, member: discord.Member):
-    """Says when a member joined."""
-    await ctx.send(f'{member.name} joined in {member.joined_at}')
-
 @bot.group()
 async def cool(ctx):
     """Says if a user is cool.
@@ -66,12 +66,6 @@ async def cool(ctx):
     """
     if ctx.invoked_subcommand is None:
         await ctx.send(f'No, {ctx.subcommand_passed} is not cool')
-
-@cool.command(name='bot')
-async def _bot(ctx):
-    """Is the bot cool?"""
-    await ctx.send('Yes, the bot is cool.')
-
 
 try:
     bot.run(bot_token)
